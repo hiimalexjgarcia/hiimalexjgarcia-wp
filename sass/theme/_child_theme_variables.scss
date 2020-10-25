@@ -10,5 +10,29 @@
 // Color system
 //
 
-$primary: #7C008C;
+/* Color Theme Swatches in Hex */
+$Glowing-All-1-hex: #0A1747;
+$Glowing-All-2-hex: #0029FA;
+$Glowing-All-3-hex: #8D07F6;
+$Glowing-All-4-hex: #FFFF05;
+$Glowing-All-5-hex: #D4DBF5;
 
+/* Color Theme Swatches in RGBA */
+$Glowing-All-1-rgba: rgba(10,23,71, 1);
+$Glowing-All-2-rgba: rgba(0,41,250, 1);
+$Glowing-All-3-rgba: rgba(141,7,246, 1);
+$Glowing-All-4-rgba: rgba(255,255,5, 1);
+$Glowing-All-5-rgba: rgba(212,219,245, 1);
+
+/* Color Theme Swatches in HSLA */
+$Glowing-All-1-hsla: hsla(227, 75, 15, 1);
+$Glowing-All-2-hsla: hsla(230, 100, 49, 1);
+$Glowing-All-3-hsla: hsla(273, 94, 49, 1);
+$Glowing-All-4-hsla: hsla(60, 100, 50, 1);
+$Glowing-All-5-hsla: hsla(227, 62, 89, 1);
+
+//$primary: $Glowing-All-2-hex;
+//$secondary: $Glowing-All-1-hex;
+
+$enable-shadows:                              true;
+$enable-gradients:                            true;

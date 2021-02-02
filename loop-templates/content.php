@@ -1,13 +1,12 @@
 <?php
 /**
- * Post rendering content according to caller of get_template_part.
+ * Post rendering content according to caller of get_template_part
  *
- * @package understrap
+ * @package UnderStrap
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 ?>
 
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
@@ -21,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		);
 		?>
 
-		<?php if ( 'post' == get_post_type() ) : ?>
+		<?php if ( 'post' === get_post_type() ) : ?>
 
 			<div class="entry-meta">
 				<?php understrap_posted_on(); ?>
@@ -35,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<div class="entry-content">
 
-		<?php the_content(); ?>
+		<?php the_excerpt(); ?>
 
 		<?php
 		wp_link_pages(

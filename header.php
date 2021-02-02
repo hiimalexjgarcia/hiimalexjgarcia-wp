@@ -1,15 +1,14 @@
 <?php
 /**
- * The header for our theme.
+ * The header for our theme
  *
  * Displays all of the <head> section and everything up till <div id="content">
  *
- * @package understrap
+ * @package UnderStrap
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 $container = get_theme_mod( 'understrap_container_type' );
 ?>
@@ -22,18 +21,22 @@ $container = get_theme_mod( 'understrap_container_type' );
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class('bg-light text-dark'); ?>>
-
+<body <?php body_class('bg-light text-dark'); ?> <?php understrap_body_attributes(); ?>>
+<?php do_action( 'wp_body_open' ); ?>
 <div class="site" id="page">
 
 	<!-- ******************* The Navbar Area ******************* -->
-	<div id="wrapper-navbar" itemscope itemtype="http://schema.org/WebSite">
+	<div id="wrapper-navbar">
 
 		<a class="skip-link sr-only sr-only-focusable" href="#content"><?php esc_html_e( 'Skip to content', 'understrap' ); ?></a>
 
-		<nav class="navbar navbar-expand-md navbar-dark bg-primary">
+		<nav id="main-nav" class="navbar navbar-expand-md navbar-dark bg-primary" aria-labelledby="main-nav-label">
 
-		<?php if ( 'container' == $container ) : ?>
+			<h2 id="main-nav-label" class="sr-only">
+				<?php esc_html_e( 'Main Navigation', 'understrap' ); ?>
+			</h2>
+
+		<?php if ( 'container' === $container ) : ?>
 			<div class="container">
 		<?php endif; ?>
 
@@ -43,35 +46,38 @@ $container = get_theme_mod( 'understrap_container_type' );
 						<?php if ( is_front_page() && is_home() ) : ?>
 
 							<h1 class="navbar-brand mb-0">
-								<a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url">
+								<a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" itemprop="url">
 									<?php bloginfo( 'name' ); ?>
 								</a>
 							</h1>
-							<small class="text-light"><?php bloginfo( 'description' ); ?></small>
 
 						<?php else : ?>
 
-                            <div>
-                                <a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url">
-								    <?php bloginfo( 'name' ); ?>
-							    </a>
-                            </div>
-							<small class="text-light"><?php bloginfo( 'description' ); ?></small>
+							<div>
+								<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" itemprop="url">
+									<?php bloginfo( 'name' ); ?>
+								</a>
+							</div>
 
 						<?php endif; ?>
 
+						<small class="text-light"><?php bloginfo( 'description' ); ?></small>
 
-					<?php } else {
+						<?php
+					} else {
 						the_custom_logo();
-					} ?><!-- end custom logo -->
+					}
+					?>
+					<!-- end custom logo -->
 
-            <?php if ( has_nav_menu('primary') ): ?>
+				<?php if ( has_nav_menu('primary') ): ?>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'understrap' ); ?>">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
 				<!-- The WordPress Menu goes here -->
-				<?php wp_nav_menu(
+				<?php
+				wp_nav_menu(
 					array(
 						'theme_location'  => 'primary',
 						'container_class' => 'collapse navbar-collapse',
@@ -82,12 +88,12 @@ $container = get_theme_mod( 'understrap_container_type' );
 						'depth'           => 2,
 						'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
 					)
-				); ?>
-            <?php endif; ?>
-
-        <?php if ( 'container' == $container ) : ?>
+				);
+				?>
+				<?php endif; ?>
+			<?php if ( 'container' === $container ) : ?>
 			</div><!-- .container -->
-		<?php endif; ?>
+			<?php endif; ?>
 
 		</nav><!-- .site-navigation -->
 

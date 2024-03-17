@@ -20,13 +20,12 @@
 *~
 ._*
 # but track
+!.babelrc.js
 !.browserslist
 !.editorconfig
 !.gitattributes
+!.github
 !.gitignore
-!.jscsrc
-!.jshintignore
-!.travis.yml
 
 # Ignore all files with .lock extentions
 *.lock
@@ -44,9 +43,9 @@
 # Dependencies
 bower_components
 node_modules
-vendor
+/vendor/
 
-# Other UnderStrap specific files and directories
+# Other Understrap specific files and directories
 phpcs.xml
 dist/
 dist-product/

@@ -34,10 +34,13 @@ $container = get_theme_mod( 'understrap_container_type' );
 			get_template_part( 'global-templates/left-sidebar-check' );
 			?>
 
-			<main class="site-main row" id="main" data-masonry='{"percentPosition": true }'>
+			<main class="site-main" id="main">
 
 				<?php
 				if ( have_posts() ) {
+					?>
+					<div class="row" data-masonry='{"percentPosition": true }'>
+					<?php
 					// Start the Loop.
 					while ( have_posts() ) {
 						the_post();
@@ -49,6 +52,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 						 */
 						get_template_part( 'loop-templates/content', get_post_format() );
 					}
+					?></div><?php
 				} else {
 					get_template_part( 'loop-templates/content', 'none' );
 				}

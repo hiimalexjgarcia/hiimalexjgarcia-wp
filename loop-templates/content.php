@@ -9,7 +9,7 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 
-<article class="col-sm-12 col-lg-6 mb-4" <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+<article class="col-md-6 col-lg-4 mb-4" <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
 	<header class="entry-header">
 

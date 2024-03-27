@@ -39,7 +39,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 				<?php
 				if ( have_posts() ) {
 					?>
-					<div class="row" data-masonry='{"percentPosition": true }'>
+					<div class="row row-cols-1 row-cols-lg-2">
 					<?php
 					// Start the Loop.
 					while ( have_posts() ) {

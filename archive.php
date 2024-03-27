@@ -37,7 +37,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 						the_archive_description( '<div class="taxonomy-description">', '</div>' );
 						?>
 					</header><!-- .page-header -->
-					<div class="row" data-masonry='{"percentPosition": true }'>
+					<div class="row row-cols-1 row-cols-lg-2">
 					<?php
 					// Start the loop.
 					while ( have_posts() ) {

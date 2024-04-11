@@ -92,3 +92,14 @@ function understrap_child_customize_controls_js() {
 	);
 }
 add_action( 'customize_controls_enqueue_scripts', 'understrap_child_customize_controls_js' );
+
+
+
+/**
+ * Removes WordPress global styles
+ */
+function understrap_remove_global_styles() {
+	wp_dequeue_style( 'global-styles' );
+	wp_deregister_style( 'global-styles' );
+}
+add_action( 'wp_enqueue_scripts', 'understrap_remove_global_styles', 20 );

@@ -14960,6 +14960,10 @@ figure.woocommerce-product-gallery__wrapper {
   display: block;
 }
 
+.wp-post-image {
+  aspect-ratio: 16/9;
+}
+
 .has-blue-color,
 .has-blue-color:visited {
   color: #0d6efd;
